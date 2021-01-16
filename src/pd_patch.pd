@@ -1,0 +1,19 @@
+#N canvas 1069 333 563 529 12;
+#X obj 63 282 print;
+#X obj 142 377 osc~;
+#X obj 142 434 dac~;
+#X msg 408 144 \; pd dsp 1;
+#X obj 408 98 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 408 189 activate audio;
+#X msg 142 100 port 6666;
+#X obj 142 145 udpreceive;
+#X obj 142 221 unpackOSC;
+#X obj 142 281 routeOSC /oscillator/frequency;
+#X connect 1 0 2 0;
+#X connect 4 0 3 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 0 0;
+#X connect 8 0 9 0;
+#X connect 9 0 1 0;
