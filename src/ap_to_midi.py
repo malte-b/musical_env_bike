@@ -1,8 +1,9 @@
 import mido
 import time
-import json
+#import json
 from datadog import statsd
 import traceback
+import pandas as pd
 
 from tonal import Tonal, mapping
 
@@ -16,38 +17,26 @@ values = dict()
 old_values = dict()
 
 chans = dict(
-    temp=1,
-    app_temp=2,
-    dew=3,
-    humidity=4,
-    visibility=5,
-    ozone=6,
-    windBearing=7
+    pm1=1,
+    pm2_5=2,
+    pm10=3
 )
 
 
 def get_info():
-    hourly = []
-    f = pd.read_csv('../data/ride1.csv')
-    r = json.load(f)
-    for i in range(len(r["hourly"]["data"])):
-        hourly.append(r["hourly"]["data"][i])
-    return hourly
+    #hourly = []
+    df = pd.read_csv('../data/ride1.csv')
+    #for i in range(len(r["hourly"]["data"])):
+    #    hourly.append(r["hourly"]["data"][i])
+    return df #hourly
 
 
 def parse(record):
-    values.update(temp=record["temperature"])
-    values.update(
-        app_temp=record["apparentTemperature"]
-    )
-    values.update(dew=record["dewPoint"])
-    values.update(humidity=record["humidity"] * 100)
-    values.update(visibility=record["visibility"] * 10)
-    values.update(ozone=record["ozone"])
-    values.update(ozone=record["windBearing"])
+    values.update(pm1=record["PM1.0"])
+    values.update(pm2_5=record["PM2.5"])
+    values.update(pm10=record["PM10.0"])
 
-keys = ["temperature", "apparentTemperature", "dewPoint", "humidity",
-        "visibility", "ozone", "windBearing"]
+keys = ["PM1.0", "PM2.5", "PM10.0"]
 
 while True:
     data = get_info()
