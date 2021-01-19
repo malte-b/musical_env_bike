@@ -1,19 +1,156 @@
-#N canvas 1069 333 563 529 12;
-#X obj 63 282 print;
-#X obj 142 377 osc~;
-#X obj 142 434 dac~;
-#X msg 408 144 \; pd dsp 1;
-#X obj 408 98 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X text 408 189 activate audio;
-#X msg 142 100 port 6666;
-#X obj 142 145 udpreceive;
-#X obj 142 221 unpackOSC;
-#X obj 142 281 routeOSC /oscillator/frequency;
+#N canvas 630 140 1224 770 12;
+#X obj 233 249 print;
+#X obj 311 477 osc~;
+#X obj 311 534 dac~;
+#X msg 311 69 port 6666;
+#X obj 311 114 udpreceive;
+#X obj 311 190 unpackOSC;
+#X obj 311 250 routeOSC /oscillator/frequency;
+#X obj 33 68 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X msg 33 119 \; pd dsp \$1;
+#X text 28 23 turn audio on and off;
+#X obj 552 248 routeOSC /midi;
+#X obj 552 351 mtof;
+#X obj 552 381 sig~;
+#X msg 499 290 60;
+#X obj 845 55 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 845 94 metro;
+#X obj 845 136 f;
+#X obj 845 184 mod 16;
+#X obj 956 132 + 1;
+#X obj 877 69 nbx 5 14 300 1e+037 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 300 256;
+#X obj 845 233 hradio 15 1 0 16 empty empty empty 0 -8 0 10 -262144
+-1 -1 13;
+#X obj 845 480 f;
+#X obj 845 270 select 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15;
+#X obj 863 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 5600 1;
+#X obj 845 557 mtof;
+#X obj 846 735 dac~;
+#X text 841 -8 step sequencer (https://archive.flossmanuals.net/pure-data/audio-tutorials/step-sequencer.html)
+;
+#X obj 882 480 f;
+#X obj 900 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 5200 1;
+#X obj 917 480 f;
+#X obj 935 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 5900 1;
+#X obj 958 480 f;
+#X obj 976 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 6800 1;
+#X obj 993 480 f;
+#X obj 1011 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 8200 1;
+#X obj 1028 480 f;
+#X obj 1046 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 6800 1;
+#X obj 1069 480 f;
+#X obj 1087 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 5700 1;
+#X obj 1105 480 f;
+#X obj 1123 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 4600 1;
+#X obj 1140 480 f;
+#X obj 1158 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2700 1;
+#X obj 1181 480 f;
+#X obj 1199 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 3100 1;
+#X obj 1216 480 f;
+#X obj 1234 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2900 1;
+#X obj 1251 480 f;
+#X obj 1269 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 3400 1;
+#X obj 1292 480 f;
+#X obj 1310 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 5200 1;
+#X obj 1328 481 f;
+#X obj 1346 336 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 6200 1;
+#X obj 1369 481 f;
+#X obj 1387 336 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 5300 1;
+#X obj 1405 481 f;
+#X obj 1423 336 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 5900 1;
+#X obj 845 621 osc~;
+#X obj 682 247 routeOSC /select;
+#X text 301 17 receive OSC (http://hvc.berlin/puredata/);
 #X connect 1 0 2 0;
-#X connect 4 0 3 0;
-#X connect 6 0 7 0;
+#X connect 1 0 2 1;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 0 0;
+#X connect 5 0 6 0;
+#X connect 5 0 10 0;
+#X connect 5 0 58 0;
+#X connect 6 0 1 0;
 #X connect 7 0 8 0;
-#X connect 8 0 0 0;
-#X connect 8 0 9 0;
-#X connect 9 0 1 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 1 0;
+#X connect 13 0 11 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 16 0 18 0;
+#X connect 17 0 20 0;
+#X connect 18 0 16 1;
+#X connect 19 0 15 1;
+#X connect 20 0 22 0;
+#X connect 21 0 24 0;
+#X connect 22 0 21 0;
+#X connect 22 1 27 0;
+#X connect 22 2 29 0;
+#X connect 22 3 31 0;
+#X connect 22 4 33 0;
+#X connect 22 5 35 0;
+#X connect 22 6 37 0;
+#X connect 22 7 39 0;
+#X connect 22 8 41 0;
+#X connect 22 9 43 0;
+#X connect 22 10 45 0;
+#X connect 22 11 47 0;
+#X connect 22 12 49 0;
+#X connect 22 13 51 0;
+#X connect 22 14 53 0;
+#X connect 22 15 55 0;
+#X connect 23 0 21 1;
+#X connect 24 0 57 0;
+#X connect 27 0 24 0;
+#X connect 28 0 27 1;
+#X connect 29 0 24 0;
+#X connect 30 0 29 1;
+#X connect 31 0 24 0;
+#X connect 32 0 31 1;
+#X connect 33 0 24 0;
+#X connect 34 0 33 1;
+#X connect 35 0 24 0;
+#X connect 36 0 35 1;
+#X connect 37 0 24 0;
+#X connect 38 0 37 1;
+#X connect 39 0 24 0;
+#X connect 40 0 39 1;
+#X connect 41 0 24 0;
+#X connect 42 0 41 1;
+#X connect 43 0 24 0;
+#X connect 44 0 43 1;
+#X connect 45 0 24 0;
+#X connect 46 0 45 1;
+#X connect 47 0 24 0;
+#X connect 48 0 47 1;
+#X connect 49 0 24 0;
+#X connect 50 0 49 1;
+#X connect 51 0 24 0;
+#X connect 52 0 51 1;
+#X connect 53 0 24 0;
+#X connect 54 0 53 1;
+#X connect 55 0 24 0;
+#X connect 56 0 55 1;
+#X connect 57 0 25 0;
+#X connect 57 0 25 1;
+#X connect 58 0 22 0;
