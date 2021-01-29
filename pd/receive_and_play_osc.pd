@@ -23,63 +23,65 @@
 #X obj 877 69 nbx 5 14 300 1e+037 0 0 empty empty empty 0 -8 0 10 -262144
 -1 -1 300 256;
 #X obj 845 233 hradio 15 1 0 16 empty empty empty 0 -8 0 10 -262144
--1 -1 13;
+-1 -1 14;
 #X obj 845 480 f;
 #X obj 845 270 select 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15;
 #X obj 863 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 5600 1;
+-1 -1 2200 1;
 #X obj 845 557 mtof;
 #X obj 846 735 dac~;
 #X text 841 -8 step sequencer (https://archive.flossmanuals.net/pure-data/audio-tutorials/step-sequencer.html)
 ;
 #X obj 882 480 f;
 #X obj 900 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 5200 1;
+-1 -1 0 1;
 #X obj 917 480 f;
 #X obj 935 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 5900 1;
+-1 -1 0 1;
 #X obj 958 480 f;
 #X obj 976 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 6800 1;
+-1 -1 0 1;
 #X obj 993 480 f;
 #X obj 1011 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 8200 1;
+-1 -1 3500 1;
 #X obj 1028 480 f;
 #X obj 1046 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 6800 1;
+-1 -1 6200 1;
 #X obj 1069 480 f;
 #X obj 1087 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 5700 1;
+-1 -1 8600 1;
 #X obj 1105 480 f;
 #X obj 1123 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 4600 1;
+-1 -1 6200 1;
 #X obj 1140 480 f;
 #X obj 1158 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 2700 1;
+-1 -1 4700 1;
 #X obj 1181 480 f;
 #X obj 1199 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 3100 1;
+-1 -1 2500 1;
 #X obj 1216 480 f;
 #X obj 1234 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 2900 1;
+-1 -1 0 1;
 #X obj 1251 480 f;
 #X obj 1269 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 3400 1;
+-1 -1 0 1;
 #X obj 1292 480 f;
 #X obj 1310 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 5200 1;
+-1 -1 0 1;
 #X obj 1328 481 f;
 #X obj 1346 336 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 6200 1;
+-1 -1 1900 1;
 #X obj 1369 481 f;
 #X obj 1387 336 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 5300 1;
+-1 -1 1600 1;
 #X obj 1405 481 f;
 #X obj 1423 336 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 5900 1;
+-1 -1 0 1;
 #X obj 845 621 osc~;
 #X obj 682 247 routeOSC /select;
 #X text 301 17 receive OSC (http://hvc.berlin/puredata/);
+#X obj 551 480 osc~;
+#X obj 551 537 dac~;
 #X connect 1 0 2 0;
 #X connect 1 0 2 1;
 #X connect 3 0 4 0;
@@ -92,7 +94,7 @@
 #X connect 7 0 8 0;
 #X connect 10 0 11 0;
 #X connect 11 0 12 0;
-#X connect 12 0 1 0;
+#X connect 12 0 60 0;
 #X connect 13 0 11 0;
 #X connect 14 0 15 0;
 #X connect 15 0 16 0;
@@ -154,3 +156,5 @@
 #X connect 57 0 25 0;
 #X connect 57 0 25 1;
 #X connect 58 0 22 0;
+#X connect 60 0 61 0;
+#X connect 60 0 61 1;
