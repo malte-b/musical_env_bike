@@ -79,11 +79,10 @@
 #X obj 175 260 adsr 2 30 200 50 500;
 #X obj 188 141 adsr 1 10 200 50 500;
 #X obj 82 151 poly 1 1;
-#X obj 68 66 inlet;
+#X obj 68 10 inlet;
 #X obj 90 331 outlet~;
-#X obj 68 92 unpack f f f;
-#X obj 300 80 print;
-#X obj 198 51 * 1000;
+#X obj 68 36 unpack f f f;
+#X obj 149 80 * 1000;
 #X connect 0 0 8 0;
 #X connect 1 0 3 0;
 #X connect 2 0 1 0;
@@ -106,6 +105,5 @@
 #X connect 14 2 12 0;
 #X connect 15 0 17 0;
 #X connect 17 0 7 0;
-#X connect 17 2 19 0;
-#X connect 19 0 7 2;
-#X connect 19 0 18 0;
+#X connect 17 2 18 0;
+#X connect 18 0 7 2;
