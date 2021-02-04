@@ -1,4 +1,11 @@
-dynamics_range = {10:16,20:32,30:48,35:64,40:80,50:96,60:112,999:127} # ppp,pp,p,mp,mf,f,ff,fff
+dynamics_range = {5:16, # ppp
+                  10:32, # pp 
+                  15:48, # p 
+                  18:64, # mp 
+                  20:80, # mf 
+                  25:96, # f 
+                  30:112, # ff 
+                  999:127} # fff
 
 def generate_velocity(value):
     for k, v in dynamics_range.items():
