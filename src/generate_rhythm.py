@@ -8,6 +8,7 @@ data = [3, 5, 2, 9, 10, 17, 30]
 # imagine we have 120 bpm: that is 2 beats per second
 # our sequencer steps 1 time every second
 # so we have for every data point 2 beats (= one half note) to compose
+# TODO: pauses
 rhythms = {
     'slow': 'H',
     'medium': ['Q Q', 'Q E E', 'E Q E', 'E E Q'],
@@ -30,14 +31,17 @@ def generate_thresholds(data_value):
         return [0.1, 0.9]
     return [0.1, 0.2]
 
-def get_rhythm(prob, thresholds):
+def decide_rhythm(prob, thresholds):
     if prob <= thresholds[0]:
         return rhythms['slow']
     if prob <= thresholds[1]:
         return rhythms['medium'][random.randint(4)]
     return rhythms['fast']
 
-for value in data:
+def get_rhythm(data_value):
     thresholds = generate_thresholds(value)
     prob = random_prob()
-    print(get_rhythm(prob, thresholds))
+    return decide_rhythm(prob, thresholds)
+
+for value in data:
+    print(get_rhythm(value))
