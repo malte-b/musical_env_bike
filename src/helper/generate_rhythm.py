@@ -1,9 +1,6 @@
 import numpy as np
 from numpy import random
 
-# TODO mock this till the sequencer is ready
-data = [3, 5, 2, 9, 10, 17, 30]
-
 # the rhythm can consist of eighth notes (E), quarter notes (Q), half notes (H)
 # imagine we have 120 bpm: that is 2 beats per second
 # our sequencer steps 1 time every second
@@ -12,6 +9,15 @@ rhythms = {
     'slow': 'H',
     'medium': ['Q Q', 'Q E E', 'E Q E', 'E E Q'],
     'fast': 'E E E E'
+}
+
+times = {
+    'H': [1],
+    'Q Q': [0.5, 0.5],
+    'Q E E': [0.5, 0.25, 0.25],
+    'E Q E': [0.25, 0.5, 0.25],
+    'E E Q': [0.25, 0.25, 0.5],
+    'E E E E': [0.25, 0.25, 0.25, 0.25]
 }
 
 def random_prob():
@@ -42,8 +48,4 @@ def get_rhythm(prob, thresholds):
 def generate_rhythm(value):
     thresholds = generate_thresholds(value)
     prob = random_prob()
-    get_rhythm(prob, thresholds)
-
-
-for value in data:
-    print(generate_rhythm(value))
+    return times[get_rhythm(prob, thresholds)]
