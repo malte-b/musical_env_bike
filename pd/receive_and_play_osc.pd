@@ -1,4 +1,4 @@
-#N canvas 412 87 1452 770 12;
+#N canvas 477 173 1452 770 12;
 #X obj 57 249 print;
 #X obj 311 477 osc~;
 #X obj 311 534 dac~;
@@ -23,7 +23,7 @@
 #X obj 877 69 nbx 5 14 300 1e+037 0 0 empty empty empty 0 -8 0 10 -262144
 -1 -1 300 256;
 #X obj 845 233 hradio 15 1 0 16 empty empty empty 0 -8 0 10 -262144
--1 -1 14;
+-1 -1 9;
 #X obj 845 480 f;
 #X obj 845 270 select 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15;
 #X obj 863 335 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
@@ -85,7 +85,7 @@
 #X obj 168 249 routeOSC /voice;
 #X obj 168 333 voice;
 #X obj 168 371 dac~;
-#X msg 71 300 64 122 2.1;
+#X msg 71 300 64 10 1;
 #X connect 1 0 2 0;
 #X connect 1 0 2 1;
 #X connect 3 0 4 0;
