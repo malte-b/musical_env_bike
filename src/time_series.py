@@ -12,7 +12,7 @@ client = SimpleUDPClient("127.0.0.1", 6666)
 DATA_FILE = '../data/ride1.csv'
 ride_df = pd.read_csv(DATA_FILE)
 sampling_rate = 10
-pm1 = 0 
+pm1 = 0
 pm2_5 = 0
 pm10 = 0
 
@@ -40,12 +40,13 @@ for index, row in ride_df.iterrows():
 
         #generate rhythm
         rhythm = generate_rhythm(pm10)
+        #rhythm = [1]
 
         print([chord, velocity, rhythm])
 
         '''
         for note_length in rhythm:
-            client.send_message("/voice", [pitch, velocity, note_length])
+            client.send_message("/voice", [pitch, velocity, note_length - 0.1])
             time.sleep(note_length)
         '''
         for note_length in rhythm:
@@ -55,7 +56,6 @@ for index, row in ride_df.iterrows():
             time.sleep(note_length)
         
         # reset
-        pm1 = 0 
+        pm1 = 0
         pm2_5 = 0
         pm10 = 0
-
