@@ -52,7 +52,7 @@ for index, row in ride_df.iterrows():
         for note_length in rhythm:
             for i,note in enumerate(chord):
                 client.send_message("/voice"+str(i), [note, generate_velocity(pm2_5), note_length])
-                pause()
+                #pause()
             time.sleep(note_length)
         
         # reset
