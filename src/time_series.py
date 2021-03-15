@@ -27,7 +27,7 @@ for index, row in ride_df.iterrows():
         pm1 = (pm1/sampling_rate)*2  # make the pitches more different
         pm2_5 = (pm2_5/sampling_rate)
         pm10 = (pm10/sampling_rate)
-       
+
         #generate pitch
         pitch = generate_pitch(pm1)
         #pitch = 64
@@ -42,7 +42,7 @@ for index, row in ride_df.iterrows():
         rhythm = generate_rhythm(pm10)
         #rhythm = [1]
 
-        print([chord, velocity, rhythm])
+        print([pm1, pm2_5, pm10], " -> ", [chord, velocity, rhythm])
 
         '''
         for note_length in rhythm:
@@ -54,7 +54,7 @@ for index, row in ride_df.iterrows():
                 client.send_message("/voice"+str(i), [note, generate_velocity(pm2_5), note_length])
                 #pause()
             time.sleep(note_length)
-        
+
         # reset
         pm1 = 0
         pm2_5 = 0
