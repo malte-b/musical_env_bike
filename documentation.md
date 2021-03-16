@@ -112,7 +112,7 @@ https://hvc.berlin/puredata/
 https://archive.flossmanuals.net/pure-data/network-data/osc.html
 http://www.pd-tutorial.com/german/ch03.html
 
-### 7.) Work results
+### 6.) Work results
 <!-- 4) Work results: creative outcome, e.g. demo, installation, code: Great that you had a well-functioning prototype and were able to share this in class! -->
 
 #### Where to find the code and demo/prototypical application
@@ -120,7 +120,7 @@ Code: https://github.com/malte-b/musical_env_bike
 In-Class Demo: https://1drv.ms/b/s!AnD1AVr_uHBJkHPlirrGs40Kx7ko?e=8xV6Z3  
 Final Demo:
 
-### Conclusion, discussion, limitations and avenues for future work
+### 7.) Conclusion, discussion, limitations and avenues for future work
 <!-- 5) Conclusion and discussion, including limitations of your work and potential avenues for future work: Please work this out in detail. There should be a headline “conclusions” re-stating your overarching aims/vision and reviewing how far you have come with this; there should be a headline “limitations” followed by a couple of bullet points with the limitations you currently acknowledge, suggesting next likely steps to follow. Compare your slide 11 to slide 4. Your next step is to use more than one channel. Why? Which of your three goals on slide 11 is not fully met as of yet? Why would creating more channels be a helpful means to better achieving this particular goal? -->
 Next steps:
 Add more than one channel to make multiple notes at the same time possible 
@@ -135,19 +135,23 @@ Henrik von Coler was our technical mentor and helped us in multiple meetings to 
 Thank you, Julia von Thienen for the inspiring lecture and the confidence that we will find a working, exciting project when we ourselves had no ideas yet.
 
 ### Reference List
+#### Air Pollution
+
+
 #### Sonification  
-[[1]](https://sonification.de/handbook/download/TheSonificationHandbook-chapter18.pdf) Vickers, P. (2011). Sonification for process monitoring. In The sonification handbook (pp. 455-492). Logos Verlag.  
+[[1]](
+https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.123.6715&rep=rep1&type=pdf
+) Barrass, S., & Kramer, G. (1999). Using sonification. Multimedia systems, 7(1), 23-31.  
 [[2]](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1423929
 ) Hermann, T., & Hunt, A. (2005). Guest editors' introduction: An introduction to interactive sonification. IEEE multimedia, 12(2), 20-24.  
 [[3]](https://lifeorange.com/writing/Sonification_Auditory_Display.pdf) McGee, R. (2009). Auditory displays and sonification: Introduction and overview. University of California, Santa Barbara.  
-[[4]](
-https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.123.6715&rep=rep1&type=pdf
-) Barrass, S., & Kramer, G. (1999). Using sonification. Multimedia systems, 7(1), 23-31.  
+[[4]](https://sonification.de/handbook/download/TheSonificationHandbook-chapter18.pdf) Vickers, P. (2011). Sonification for process monitoring. In The sonification handbook (pp. 455-492). Logos Verlag.  
 
 
 #### Sonification of air pollution data  
-[[1]](https://smartech.gatech.edu/bitstream/handle/1853/56580/ICAD2016_paper_33.pdf?sequence=1&isAllowed=y) St Pierre, M., & Droumeva, M. (2016). Sonifying for public engagement: A context-based model for sonifying air pollution data. International Community on Auditory Display. (sound files: https://soundcloud.com/marcstpierre retrieved 2021-03-16)  
-[[2]](https://www.revistas.ufg.br/musica/article/download/53573/25694/) Arango, J. J. (2018). AirQ Sonification as a context for mutual contribution between Science and Music. Revista Música Hodie, 18(1).
+[[1]](https://www.revistas.ufg.br/musica/article/download/53573/25694/) Arango, J. J. (2018). AirQ Sonification as a context for mutual contribution between Science and Music. Revista Música Hodie, 18(1).  
+[[2]](https://smartech.gatech.edu/bitstream/handle/1853/56580/ICAD2016_paper_33.pdf?sequence=1&isAllowed=y) St Pierre, M., & Droumeva, M. (2016). Sonifying for public engagement: A context-based model for sonifying air pollution data. International Community on Auditory Display. (sound files: https://soundcloud.com/marcstpierre retrieved 2021-03-16)  
+
 
 #### Sonic Bikes  
 https://sonicbikes.net/environmental-bike-2020/ (retrieved 2021-03-16)  
