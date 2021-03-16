@@ -2,7 +2,7 @@
 ## Data Sonification and Opportunities of Sound, WS 2020/21
 Course offered by: Dr. Julia von Thienen, Dr. Marisol Jimenez, Dr. Henrik von Coler, Dr. Nico Steckhan & Dr. Knut Kaulke
 
-This document serves as the final documentation for the Seminar "Data Sonification and Opportunities of Sound" at HPI.  
+This document serves as the final documentation for the seminar "Data Sonification and Opportunities of Sound" at HPI.  
 The content is structured as follows:  
 [1.) Project title](#1-project-title)  
 [2.) Team members, affiliations, contact details](#2-team-members-affiliations-contact-details)  
@@ -49,23 +49,25 @@ We believe that our computer science background can help us to (Projekt anders a
 
 #### Sonification of air pollution data
 // 2 Paper
-// Ozon data: https://cdm.link/2013/11/sci-fi-electronic-band-music-made-ozone-data-elektron-drum-machine-sonification/
-// Sonification of urban environmental data: https://soundcloud.com/kasper-skov/sonification-excerpt-4-rio-de
-// Carbon emissions of twitter feeds (project to connect virtuality and reality with water/air installation): https://carbonfeed.org/, https://vimeo.com/109211210
+
+Next to these scientific papers, we also found interesting sound examples online. For example Space F!ght in collaboration with the Stockholm Environment Institute and NASA’s Goddard Institute for Space Studies want to communicate the level of ozone data through art [[?4]](#reference-list). They perform a combination of parameter marking, speach and improvisation of a trumpet player. We find the sound quite mystic as well as concerning and alarming. The improvising trumped is guided by the ozon data, and gives a sensitive touch to the performance. The group states that they chose to work with ozone data because ozone is proved to directly effect climate, and human health.
+
+The sonification by Kasper Fangel Skov [[?5]](#reference-list) is concerned about climate and human health as well but focuses not on ozone but on dimensions like temperature, light, humidity, and noise. Interestingly this sonification of urban environmental data of different cities also uses voice to classify the used data in categories like "high" or "medium".
+
+Also intersting is a project by Jon Bellona and John Park [[?6]](#reference-list) [[?7]](#reference-list). They are not directly sonifying air pollution data but carbon emissions of twitter feeds. This indirect concern about air pollution is communicated with a physical visualisation. The auditive as well as visual experience aims to connect virtuality and reality. Based on the estimation that one twitter tweet produces 0.02 grams of CO2, gas bubbles inside a water tank are released based on personal twitter feed data. The physical visualisation is supported by sound, which makes the installation even more powerful.
 
 #### Sonic Bikes and Kayaks
-// Kayaks: https://fo.am/activities/kayaks/
-// Sonic Bikes  
-https://sonicbikes.net/environmental-bike-2020/
-https://www.kaffematthews.net/project/environmental-bike-2020
-https://www.kaffematthews.net/category/Lisbon/
-
+Apart from the sonification projects described above, we got inspiration by the *Sonic Kayak* [[?]](#reference-list) and the *Sonic Bike* [[?1]](#reference-list) [[?2]](#reference-list) [[?3]](#reference-list) projects. Both projects were introduced to us by *Kaffe Matthews* who works on these topics for many years.  
+The *Sonic Kayak* project generates live sound on the kayak, using sensors in the water as well as sensors for air particulate pollution, GPS, and time.  
+Also concerned about air particulate pollution is the *Sonic Bike* project. Here, an air pollution sensor with 12 channels gathers live data on a bike. The data is then processed at the back of the bike, using Raspberry Pi and PD vanilla. Finally, the bike rider can experience the sonified air pollution via two speakers, attached to bicycle handlebar.    
+Originally we wanted to become part of the *Sonic Bike* project. But due to the COVID-19 pandemic we decided to use recorded CSV data instead of the bikes with live data. Moreover we play our strength in programming skills and use a Python script to step through the data and preprocess it. The original *Sonic Bike* project directly deals with the data in PD vanilla. We decided to change this approach because we are new to PD (*Pure Data*) and data preprocessing seems to be better supported in python since PD is mainly used as an interactive multimedia software. A more detailed overview of our current approach can be found in the next section.
 
 ### 5.) Methods
-The original sonic bike project gathers live data on the bike with an air pollution sensor with 12 channels. The data is then processed at the back of the bike, using Raspberry Pi and PD vanilla.
-Due to the COVID-19 pandemic we decided to use CSV data instead of live data. Moreover we play our strength in programming skills and use a Python script to step through the data and preprocess it. Finally we use osc to send the processed information to PD. Here we read messages as notes and play the notes with a synthesizer to hear the sonified data.
+On the way from the pure air particulate pollution data to a telling sonification we have to deal with multiple challenges.  
+We prepare the data and map different dimensions of the data to pitch, volume etc. to generate a telling sound. Finally we use osc to send the processed information to PD. Here we read the messages as notes and play them with a synthesizer.  
+In the following sections we take a more detailled look into each step we take to successfully hear the sonified data in the end.
 
-// einleitung warum wir die nächsten 5 abschnitte gewählt haben
+//ÜBERALL WHY
 <!-- 3) Methods used: Generally ☺. Please ensure the communication of a suitable portfolio of project aims. E.g., why is it necessary to mimick chords, why do you create a rhythm etc.? Simpler approaches might be more suited to help listeners understand levels of air pollution in diagnostically straightforward ways. Maybe you have artistic aims? That’s good, just explain them. -->
 
 #### Data Preparation
@@ -152,12 +154,23 @@ https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.123.6715&rep=rep1&type
 [[1]](https://www.revistas.ufg.br/musica/article/download/53573/25694/) Arango, J. J. (2018). AirQ Sonification as a context for mutual contribution between Science and Music. Revista Música Hodie, 18(1).  
 [[2]](https://smartech.gatech.edu/bitstream/handle/1853/56580/ICAD2016_paper_33.pdf?sequence=1&isAllowed=y) St Pierre, M., & Droumeva, M. (2016). Sonifying for public engagement: A context-based model for sonifying air pollution data. International Community on Auditory Display. (sound files: https://soundcloud.com/marcstpierre retrieved 2021-03-16)  
 
+[[?4]](https://cdm.link/2013/11/sci-fi-electronic-band-music-made-ozone-data-elektron-drum-machine-sonification/) cdm (2013). *A Sci-Fi Band and Music Made from Ozone Data: Elektron Drum Machine, Sax Sonification.* Retrieved from https://cdm.link/2013/11/sci-fi-electronic-band-music-made-ozone-data-elektron-drum-machine-sonification/ on 2021-03-16  
+[[?5]](https://soundcloud.com/kasper-skov/sonification-excerpt-4-rio-de) Kasper Fangel Skov (2015). *Sonification excerpt #4: Rio de Janeiro.* Retrieved from https://soundcloud.com/kasper-skov/sonification-excerpt-4-rio-de on 2021-03-16  
+[[?6]](https://carbonfeed.org/) Bellona, J & John Park, J & Bellona, D. (2014). *#Carbonfeed, About.* Retrieved from https://carbonfeed.org/ on 2021-03-16  
+[[?7]](https://vimeo.com/109211210) Harmonic Laboratory (2014). *#CarbonFeed - The Weight of Digital Behavior.* Retrieved from https://vimeo.com/109211210 on 2021-03-16  
+
+
+[[?]](https://fo.am/activities/kayaks/) FoAM (2020). *Sonic Kayaks.* Retrieved from https://fo.am/activities/kayaks/ on 2021-03-16  
 
 #### Sonic Bikes  
-https://sonicbikes.net/environmental-bike-2020/ (retrieved 2021-03-16)  
-https://www.kaffematthews.net/project/environmental-bike-2020 (retrieved 2021-03-16)  
-https://www.kaffematthews.net/category/Lisbon/ (retrieved 2021-03-16)  
+[[?1]](https://sonicbikes.net/environmental-bike-2020/) Bicrophonic Research Institute (2020). *Environmental Bike (2020).* Retrieved from https://sonicbikes.net/environmental-bike-2020/ on 2021-03-16  
+[[?2]](https://www.kaffematthews.net/project/environmental-bike-2020) Kaffe Matthews (2020). *Environmental Bike (2020).* Retrieved from https://www.kaffematthews.net/project/environmental-bike-2020 on 2021-03-16  
+[[?3]](https://www.kaffematthews.net/category/Lisbon/) Kaffe Matthews (2020). *Sukandar connects the air pollution sensor / Environmental Bike gets real.* Retrieved from https://www.kaffematthews.net/category/Lisbon/ on 2021-03-16  
+
 
 #### PD examples  
 https://hvc.berlin/puredata/ (retrieved 2021-03-16)  
 https://archive.flossmanuals.net/pure-data/network-data/osc.html (retrieved 2021-03-16)  
+
+
+[[?40]]()  (). *.* Retrieved from __ on 2021-03-16   
