@@ -2,6 +2,18 @@
 ## Data Sonification and Opportunities of Sound, WS 2020/21
 Course offered by: Dr. Julia von Thienen, Dr. Marisol Jimenez, Dr. Henrik von Coler, Dr. Nico Steckhan & Dr. Knut Kaulke
 
+This document serves as the final documentation for the Seminar "Data Sonification and Opportunities of Sound" at HPI.  
+The content is structured as follows:  
+[1.) Project title](#project-title)  
+[2.) Team members, affiliations, contact details](#team-members,-affiliations,-contact-details)  
+[3.) The project aim and why this is important](#the-project-aim-and-why-this-is-important)  
+[4.) Theoretical embedding, related works](#theoretical-embedding,-related works)  
+[5.) Methods](#methods)  
+[6.) Work results](#work-results)  
+[7.) Conclusion, discussion, limitations and avenues for future work](#conclusion,-discussion,-limitations-and-avenues-for-future-work)  
+[8.) Acknowledgements](#acknowledgements)  
+[Reference List](#reference-list)  
+
 ### Project title
 Musical Environmental Bike
 
@@ -15,6 +27,8 @@ carla.terboven@student.hpi.de
 IT-Systems Engineering
 
 ### The project aim and why this is important
+// Absatz: Warum air pollution gefährlich ist + Quellen
+
 The *Sonic Bike* project already exists since 2008. The goal is to hear sonified air pollution data while riding a bike.
 
 We joined the project after meeting *Kaffe Matthews*.
@@ -31,6 +45,21 @@ We believe that our computer science background can help us to (Projekt anders a
 
 ### Theoretical embedding, related works
 <!-- 2b) Theoretical embedding - related works: Please provide more literature references. For instance, what other approaches are there for the sonification of air pollution or similar data (where the Geiger counter can be one example)? What other approaches are there for the use of ordinary objects – like bikes – as artistic pieces to bring awareness to some issue?... -->
+#### Sonification
+
+#### Sonification of air pollution data
+// 2 Paper
+// Ozon data: https://cdm.link/2013/11/sci-fi-electronic-band-music-made-ozone-data-elektron-drum-machine-sonification/
+// Sonification of urban environmental data: https://soundcloud.com/kasper-skov/sonification-excerpt-4-rio-de
+// Carbon emissions of twitter feeds (project to connect virtuality and reality with water/air installation): https://carbonfeed.org/, https://vimeo.com/109211210
+
+#### Sonic Bikes and Kayaks
+// Kayaks: https://fo.am/activities/kayaks/
+// Sonic Bikes  
+https://sonicbikes.net/environmental-bike-2020/
+https://www.kaffematthews.net/project/environmental-bike-2020
+https://www.kaffematthews.net/category/Lisbon/
+
 
 ### Methods
 The original sonic bike project gathers live data on the bike with an air pollution sensor with 12 channels. The data is then processed at the back of the bike, using Raspberry Pi and PD vanilla.
@@ -83,7 +112,7 @@ As shown in the picture below we generate a random number for each data point. B
 ### Work results
 <!-- 4) Work results: creative outcome, e.g. demo, installation, code: Great that you had a well-functioning prototype and were able to share this in class! -->
 
-### Where to find the code and demo/prototypical application
+#### Where to find the code and demo/prototypical application
 Code: https://github.com/malte-b/musical_env_bike  
 In-Class Demo: https://1drv.ms/b/s!AnD1AVr_uHBJkHPlirrGs40Kx7ko?e=8xV6Z3  
 Final Demo:
@@ -95,7 +124,7 @@ Add more than one channel to make multiple notes at the same time possible 
 Maybe use a different synth
 
 
-### Acknowledgements
+### 8.) Acknowledgements
 We would like to thank Kaffe Matthews and Henrik von Coler for their help and expertise they shared with us.  
 Kaffe Matthews inspired and leaded us to the sonic bike topic. She provided data and new ideas in several meetings.  
 Henrik von Coler was our technical mentor and helped us in multiple meetings to set up the technical framework.
