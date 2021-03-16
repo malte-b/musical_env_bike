@@ -4,20 +4,20 @@ Course offered by: Dr. Julia von Thienen, Dr. Marisol Jimenez, Dr. Henrik von Co
 
 This document serves as the final documentation for the Seminar "Data Sonification and Opportunities of Sound" at HPI.  
 The content is structured as follows:  
-[1.) Project title](#project-title)  
-[2.) Team members, affiliations, contact details](#team-members,-affiliations,-contact-details)  
-[3.) The project aim and why this is important](#the-project-aim-and-why-this-is-important)  
-[4.) Theoretical embedding, related works](#theoretical-embedding,-related works)  
-[5.) Methods](#methods)  
-[6.) Work results](#work-results)  
-[7.) Conclusion, discussion, limitations and avenues for future work](#conclusion,-discussion,-limitations-and-avenues-for-future-work)  
-[8.) Acknowledgements](#acknowledgements)  
+[1.) Project title](#1-project-title)  
+[2.) Team members, affiliations, contact details](#2-team-members-affiliations-contact-details)  
+[3.) The project aim and why this is important](#3-the-project-aim-and-why-this-is-important)  
+[4.) Theoretical embedding, related works](#4-theoretical-embedding-related-works)  
+[5.) Methods](#5-methods)  
+[6.) Work results](#6-work-results)  
+[7.) Conclusion, discussion, limitations and avenues for future work](#7-conclusion-discussion-limitations-and-avenues-for-future-work)  
+[8.) Acknowledgements](#8-acknowledgements)  
 [Reference List](#reference-list)  
 
-### Project title
+### 1.) Project title
 Musical Environmental Bike
 
-### Team members, affiliations, contact details
+### 2.) Team members, affiliations, contact details
 **Malte Barth**  
 malte.barth@student.hpi.de  
 Data Engineering
@@ -26,7 +26,7 @@ Data Engineering
 carla.terboven@student.hpi.de  
 IT-Systems Engineering
 
-### The project aim and why this is important
+### 3.) The project aim and why this is important
 // Absatz: Warum air pollution gefährlich ist + Quellen
 
 The *Sonic Bike* project already exists since 2008. The goal is to hear sonified air pollution data while riding a bike.
@@ -43,7 +43,7 @@ We believe that our computer science background can help us to (Projekt anders a
 <!-- 2) Introduction to the topic: basically ☺, please ensure a good consistency between your communicated project aims and the chosen sound design / sonification approach
 2a) The aim of your project, and why it is important/interesting: Generally ☺, please re-adjust or amend based on your preferred methodology and solutions -->
 
-### Theoretical embedding, related works
+### 4.) Theoretical embedding, related works
 <!-- 2b) Theoretical embedding - related works: Please provide more literature references. For instance, what other approaches are there for the sonification of air pollution or similar data (where the Geiger counter can be one example)? What other approaches are there for the use of ordinary objects – like bikes – as artistic pieces to bring awareness to some issue?... -->
 #### Sonification
 
@@ -61,7 +61,7 @@ https://www.kaffematthews.net/project/environmental-bike-2020
 https://www.kaffematthews.net/category/Lisbon/
 
 
-### Methods
+### 5.) Methods
 The original sonic bike project gathers live data on the bike with an air pollution sensor with 12 channels. The data is then processed at the back of the bike, using Raspberry Pi and PD vanilla.
 Due to the COVID-19 pandemic we decided to use CSV data instead of live data. Moreover we play our strength in programming skills and use a Python script to step through the data and preprocess it. Finally we use osc to send the processed information to PD. Here we read messages as notes and play the notes with a synthesizer to hear the sonified data.
 
@@ -107,9 +107,12 @@ As shown in the picture below we generate a random number for each data point. B
 ![Probability Based Rhythm Generation](https://raw.githubusercontent.com/malte-b/musical_env_bike/readme_images/readme_images/generate_rhythm.png)
 
 #### PD Patch
+PD examples  
+https://hvc.berlin/puredata/
+https://archive.flossmanuals.net/pure-data/network-data/osc.html
+http://www.pd-tutorial.com/german/ch03.html
 
-
-### Work results
+### 7.) Work results
 <!-- 4) Work results: creative outcome, e.g. demo, installation, code: Great that you had a well-functioning prototype and were able to share this in class! -->
 
 #### Where to find the code and demo/prototypical application
@@ -132,12 +135,25 @@ Henrik von Coler was our technical mentor and helped us in multiple meetings to 
 Thank you, Julia von Thienen for the inspiring lecture and the confidence that we will find a working, exciting project when we ourselves had no ideas yet.
 
 ### Reference List
-<!-- Literature references: Please add this.
--->
-Sonic Bikes  
-https://sonicbikes.net/environmental-bike-2020/
-https://www.kaffematthews.net/project/environmental-bike-2020
-https://www.kaffematthews.net/category/Lisbon/
-PD examples  
-https://hvc.berlin/puredata/
-https://archive.flossmanuals.net/pure-data/network-data/osc.html
+#### Sonification  
+[[1]](https://sonification.de/handbook/download/TheSonificationHandbook-chapter18.pdf) Vickers, P. (2011). Sonification for process monitoring. In The sonification handbook (pp. 455-492). Logos Verlag.  
+[[2]](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1423929
+) Hermann, T., & Hunt, A. (2005). Guest editors' introduction: An introduction to interactive sonification. IEEE multimedia, 12(2), 20-24.  
+[[3]](https://lifeorange.com/writing/Sonification_Auditory_Display.pdf) McGee, R. (2009). Auditory displays and sonification: Introduction and overview. University of California, Santa Barbara.  
+[[4]](
+https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.123.6715&rep=rep1&type=pdf
+) Barrass, S., & Kramer, G. (1999). Using sonification. Multimedia systems, 7(1), 23-31.  
+
+
+#### Sonification of air pollution data  
+[[1]](https://smartech.gatech.edu/bitstream/handle/1853/56580/ICAD2016_paper_33.pdf?sequence=1&isAllowed=y) St Pierre, M., & Droumeva, M. (2016). Sonifying for public engagement: A context-based model for sonifying air pollution data. International Community on Auditory Display. (sound files: https://soundcloud.com/marcstpierre retrieved 2021-03-16)  
+[[2]](https://www.revistas.ufg.br/musica/article/download/53573/25694/) Arango, J. J. (2018). AirQ Sonification as a context for mutual contribution between Science and Music. Revista Música Hodie, 18(1).
+
+#### Sonic Bikes  
+https://sonicbikes.net/environmental-bike-2020/ (retrieved 2021-03-16)  
+https://www.kaffematthews.net/project/environmental-bike-2020 (retrieved 2021-03-16)  
+https://www.kaffematthews.net/category/Lisbon/ (retrieved 2021-03-16)  
+
+#### PD examples  
+https://hvc.berlin/puredata/ (retrieved 2021-03-16)  
+https://archive.flossmanuals.net/pure-data/network-data/osc.html (retrieved 2021-03-16)  
