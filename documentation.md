@@ -54,7 +54,7 @@ Next to these scientific papers, we also found interesting sound examples online
 
 The sonification by Kasper Fangel Skov [[?5]](#reference-list) is concerned about climate and human health as well but focuses not on ozone but on dimensions like temperature, light, humidity, and noise. Interestingly this sonification of urban environmental data of different cities also uses voice to classify the used data in categories like "high" or "medium".
 
-Also intersting is a project by Jon Bellona and John Park [[?6]](#reference-list) [[?7]](#reference-list). They are not directly sonifying air pollution data but carbon emissions of twitter feeds. This indirect concern about air pollution is communicated with a physical visualisation. The auditive as well as visual experience aims to connect virtuality and reality. Based on the estimation that one twitter tweet produces 0.02 grams of CO2, gas bubbles inside a water tank are released based on personal twitter feed data. The physical visualisation is supported by sound, which makes the installation even more powerful.
+Also intersting is a project by Jon Bellona and John Park [[?6]](#reference-list) [[?7]](#reference-list). They are not directly sonifying air pollution data but carbon emissions of twitter feeds. This indirect concern about air pollution is communicated with a physical visualisation. The auditive as well as visual experience aims to connect virtuality and reality. Based on the estimation that one twitter tweet produces 0.02 grams of CO2, gas bubbles inside a water tank are released based on personal twitter feed data. The physical visualisation is supported by sound, which makes the feeling transported by the installation even more powerful.
 
 #### Sonic Bikes and Kayaks
 Apart from the sonification projects described above, we got inspiration by the *Sonic Kayak* [[?]](#reference-list) and the *Sonic Bike* [[?1]](#reference-list) [[?2]](#reference-list) [[?3]](#reference-list) projects. Both projects were introduced to us by *Kaffe Matthews* who works on these topics for many years.  
@@ -109,10 +109,11 @@ As shown in the picture below we generate a random number for each data point. B
 ![Probability Based Rhythm Generation](https://raw.githubusercontent.com/malte-b/musical_env_bike/readme_images/readme_images/generate_rhythm.png)
 
 #### PD Patch
-PD examples  
-https://hvc.berlin/puredata/
-https://archive.flossmanuals.net/pure-data/network-data/osc.html
-http://www.pd-tutorial.com/german/ch03.html
+To send the preprocessed information to PD (*Pure Data*), we used OSC (*Open Sound Control*). OSC is a network protocol mainly used for real time processing of sound data. Having a background in computer science we were able to set up the osc client on the python side quite fast but needed support for the PD side. The tutorials by von Coler [[?10]](#pd-examples) and Davison [[?11]](#pd-examples) helped out so that messages with the preprocessed data can be used inside our PD patch.  
+As a last step before hearing the final sonification we need a synthesizer. After starting with simple sine waves and pitches manipulated by the PM values, we realized that we need different approaches to communicate the meaning of the data to the listeners on the bike more intuitively.  
+// THAT IS WHY WE DECIDED FOR GEIGER/SAMPLES...  
+To manage this last step we experienced great help by *Kaffe Matthews*, *Hendrik von Coler* and a PD tutorial by Kreidler [[?12]](#pd-examples).
+
 
 ### 6.) Work results
 <!-- 4) Work results: creative outcome, e.g. demo, installation, code: Great that you had a well-functioning prototype and were able to share this in class! -->
@@ -143,16 +144,16 @@ Thank you, Julia von Thienen for the inspiring lecture and the confidence that w
 #### Sonification  
 [[1]](
 https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.123.6715&rep=rep1&type=pdf
-) Barrass, S., & Kramer, G. (1999). Using sonification. Multimedia systems, 7(1), 23-31.  
+) Barrass, S., & Kramer, G. (1999). *Using sonification.* Multimedia systems, 7(1), 23-31.  
 [[2]](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1423929
-) Hermann, T., & Hunt, A. (2005). Guest editors' introduction: An introduction to interactive sonification. IEEE multimedia, 12(2), 20-24.  
-[[3]](https://lifeorange.com/writing/Sonification_Auditory_Display.pdf) McGee, R. (2009). Auditory displays and sonification: Introduction and overview. University of California, Santa Barbara.  
-[[4]](https://sonification.de/handbook/download/TheSonificationHandbook-chapter18.pdf) Vickers, P. (2011). Sonification for process monitoring. In The sonification handbook (pp. 455-492). Logos Verlag.  
+) Hermann, T., & Hunt, A. (2005). *Guest editors' introduction: An introduction to interactive sonification.* IEEE multimedia, 12(2), 20-24.  
+[[3]](https://lifeorange.com/writing/Sonification_Auditory_Display.pdf) McGee, R. (2009). *Auditory displays and sonification: Introduction and overview.* University of California, Santa Barbara.  
+[[4]](https://sonification.de/handbook/download/TheSonificationHandbook-chapter18.pdf) Vickers, P. (2011). *Sonification for process monitoring.* In The sonification handbook (pp. 455-492). Logos Verlag.  
 
 
 #### Sonification of air pollution data  
-[[1]](https://www.revistas.ufg.br/musica/article/download/53573/25694/) Arango, J. J. (2018). AirQ Sonification as a context for mutual contribution between Science and Music. Revista Música Hodie, 18(1).  
-[[2]](https://smartech.gatech.edu/bitstream/handle/1853/56580/ICAD2016_paper_33.pdf?sequence=1&isAllowed=y) St Pierre, M., & Droumeva, M. (2016). Sonifying for public engagement: A context-based model for sonifying air pollution data. International Community on Auditory Display. (sound files: https://soundcloud.com/marcstpierre retrieved 2021-03-16)  
+[[1]](https://www.revistas.ufg.br/musica/article/download/53573/25694/) Arango, J. J. (2018). *AirQ Sonification as a context for mutual contribution between Science and Music.* Revista Música Hodie, 18(1).  
+[[2]](https://smartech.gatech.edu/bitstream/handle/1853/56580/ICAD2016_paper_33.pdf?sequence=1&isAllowed=y) St Pierre, M., & Droumeva, M. (2016). *Sonifying for public engagement: A context-based model for sonifying air pollution data. International Community on Auditory Display.* (sound files: https://soundcloud.com/marcstpierre retrieved 2021-03-16)  
 
 [[?4]](https://cdm.link/2013/11/sci-fi-electronic-band-music-made-ozone-data-elektron-drum-machine-sonification/) cdm (2013). *A Sci-Fi Band and Music Made from Ozone Data: Elektron Drum Machine, Sax Sonification.* Retrieved from https://cdm.link/2013/11/sci-fi-electronic-band-music-made-ozone-data-elektron-drum-machine-sonification/ on 2021-03-16  
 [[?5]](https://soundcloud.com/kasper-skov/sonification-excerpt-4-rio-de) Kasper Fangel Skov (2015). *Sonification excerpt #4: Rio de Janeiro.* Retrieved from https://soundcloud.com/kasper-skov/sonification-excerpt-4-rio-de on 2021-03-16  
@@ -169,8 +170,6 @@ https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.123.6715&rep=rep1&type
 
 
 #### PD examples  
-https://hvc.berlin/puredata/ (retrieved 2021-03-16)  
-https://archive.flossmanuals.net/pure-data/network-data/osc.html (retrieved 2021-03-16)  
-
-
-[[?40]]()  (). *.* Retrieved from __ on 2021-03-16   
+[[?10]](https://hvc.berlin/puredata/) Henrik von Coler (2020). *Puredata.* Retrieved from https://hvc.berlin/puredata/ on 2021-03-16   
+[[?11]](https://archive.flossmanuals.net/pure-data/network-data/osc.html) Patrick Davison (2009). *Open Sound Control (OSC).* Retrieved from https://archive.flossmanuals.net/pure-data/network-data/osc.html on 2021-03-16   
+[[?12]](http://www.pd-tutorial.com/german/ch03.html) Johannes Kreidler (2009). *Programmierung Elektronischer Musik in Pd.* Kapitel 3. Audio. Retrieved from http://www.pd-tutorial.com/german/ch03.html on 2021-03-16   
