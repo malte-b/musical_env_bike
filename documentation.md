@@ -44,8 +44,21 @@ We believe that our computer science background can help us to (Projekt anders a
 2a) The aim of your project, and why it is important/interesting: Generally ☺, please re-adjust or amend based on your preferred methodology and solutions -->
 
 ### 4.) Theoretical embedding, related works
-<!-- 2b) Theoretical embedding - related works: Please provide more literature references. For instance, what other approaches are there for the sonification of air pollution or similar data (where the Geiger counter can be one example)? What other approaches are there for the use of ordinary objects – like bikes – as artistic pieces to bring awareness to some issue?... -->
+As explained in the last section, we decided to sonify air pollution data. Since there are several possibilities of sonifications out there, we introduce some theoretical sonification approaches in the beginning. After that we present different sonification projects around the topic of air pollution. Some of these projects serve as a source of inspiration for our own project. Directly related to our vision are the *Sonic Kayak* and *Sonic Bike* project. In both projects a green form of transportation (kayak and bike) serves as an artistic medium to raise the awareness of environmental pollution while at the same time using the medium of transportation to explore the lake or city. The connection between these projects and our own idea is described in the end of this section.
+
 #### Sonification
+Sonification is defined as “the transformation of data relations into perceived relations in an acoustic signal for the purposes of facilitating communication of interpretation” [[1???]](#reference-list).  
+But why is it interesting for us to inform people about air pollution data via acoustic audio signals instead of using visual plots, as most people are used to consume scientific data via plots and tables? The users of our *Musical Environmental Bike* project are cyclists exploring parts of the city. Knowing that they use a medium of transportation and they concentrate on traffic we have to communicate the data in an intuitive, not too distracting way to get the user's understanding and awareness for the existing air pollution.    
+Paul Vickers describes in chapter 18 of "The Sonification Handbook" three different modes of monitoring: *direct, peripheral and serendipitous-peripheral* [[1]](#reference-list). When monitoring information in a direct way the main focus of attention is claimed. For peripheral monitoring the "attention is focused on a primary task whilst required information relating to another task or goal is presented on a peripheral display and is monitored indirectly" [[1]](#reference-list). And the "attention is focused on a primary task whilst information that is useful but not required is presented on a peripheral display and is monitored indirectly" [[1]](#reference-list) when using serendipitous-peripheral monitoring. We aim to monitor air pollution data while the users explore the city with a bike. Clearly we want the users to concentrate on the traffic and not on screens showing the air pollution data. We aim to present the data in a peripheral way. Since the "human auditory system does not need a directional fix on a sound source in order to perceive its presence" [[1]](#reference-list) the monitoring with audio seems to be a perfect way.  
+But how can the cyclist intuitively understand the monitored data? Rauterberg and Styger ///////[91] advise to "look for everyday sounds that 'stand for themselves'". And Tractinsky et al. ////[112] state that user perception is driven by aesthetics and there is growing evidence that there is an increased usability of systems designed with an aesthetic focus.
+According to Vickers [[1]](#reference-list) "the embedding of signal sounds inside some carrier sound" also leads to user satisfaction because of less annoyance and distraction. Vickers introduces approaches where user-selected music serves as the carrier sound of the sonification signals. He states that "such a steganographic approach allows monitoring to be carried out by those who need to do it without causing distraction to other people in the environment." So it might be an interesting thing to look at, since the speakers on the bikes provide sound to the whole environment and not just the cyclist.  
+But apart from aesthetic, user-centered everyday sound we also found more theoretical design concepts for sonification.  
+Kramer //////// makes a distinction between *analogic and symbolic representations* of the data. An example for analogic representation is the Geiger counter because it directly maps data points to sound. The listener can understand the immediate one-to-one connection between data and sound signals. This is different for a symbolic representation. Here the data only gets represented categorically and there is no direct relationship between data and relationship necessary. Examples are most control notifications in cars. To us the analogic representation sounds interesting because it can directly transport a lot of the datas meaning. Moreover the sound of the Geiger counter could communicate the association of poisened air to the cyclist. A symbolic representation might be interesting when passing certain air pollution thresholds of the EU or WHO. We can imagine a symbolic representation at that point.  
+Another concept are semiotic distinctions. Here we can differentiate *syntactic methods* using e.g. earcons, *semantic methods* like auditory icons and *lexical methods* as parameter mapping [[???????]](#reference-list).  
+Earcons are a very abstract representation of the data what makes them hard to understand. Because we want the cyclist to understand the data quite intuitively we now take a closer look at semantic and lexical methods.  
+Semantic methods like auditory icons map data to everyday sound. This leads to familiarity and quick understanding as well as direct classification options. But the mapping of data to auditory icons is complicated especially because in our case we have to think about a good representation for air pollution data that does not have a natural physical sound.  
+When using parameter mapping, different dimensions of the data are mapped to acoustic properties like pitch, duration or loudness. This way one can listen to multiple data dimensions at the same time and create a complex sound. But it is quite difficult to balance everything in a way that the listener can still pick up the meaning of the data [[1]](#reference-list). Moreover it becomes unpleasant quite fast and we have to balance between the alarming content of air pollution and the confidence and well-being of the person riding the bike.  
+Thinking more closely about the continous stream of air pollution data we want to sonify, we hope to find different levels of air pollution in Potsdam. Then we do not need attention grabbing sounds all the time but think about using it in situations where the pollution data gets alarmingly high. Looking at specific design recommendations in the literature, McGee advises to keep sound events as short as possible and the spacing between sounds reasonable to avoid interference and sound masking as well as preventing the user from being overwhelmed by too many sound events [[??]](#reference-list).
 
 #### Sonification of air pollution data
 // 2 Paper
@@ -64,7 +77,7 @@ Originally we wanted to become part of the *Sonic Bike* project. But due to the 
 
 ### 5.) Methods
 On the way from the pure air particulate pollution data to a telling sonification we have to deal with multiple challenges.  
-We prepare the data and map different dimensions of the data to pitch, volume etc. to generate a telling sound. Finally we use osc to send the processed information to PD. Here we read the messages as notes and play them with a synthesizer.  
+We prepare the data and map different dimensions of the data to pitch, volume etc. to generate a telling sound. Finally we use OSC (*Open Sound Control*) to send the processed information to PD. Here we read the messages as notes and play them with a synthesizer.  
 In the following sections we take a more detailled look into each step we take to successfully hear the sonified data in the end.
 
 //ÜBERALL WHY
@@ -109,10 +122,10 @@ As shown in the picture below we generate a random number for each data point. B
 ![Probability Based Rhythm Generation](https://raw.githubusercontent.com/malte-b/musical_env_bike/readme_images/readme_images/generate_rhythm.png)
 
 #### PD Patch
-To send the preprocessed information to PD (*Pure Data*), we used OSC (*Open Sound Control*). OSC is a network protocol mainly used for real time processing of sound data. Having a background in computer science we were able to set up the osc client on the python side quite fast but needed support for the PD side. The tutorials by von Coler [[?10]](#pd-examples) and Davison [[?11]](#pd-examples) helped out so that messages with the preprocessed data can be used inside our PD patch.  
+To send the preprocessed information to PD (*Pure Data*), we use OSC (*Open Sound Control*). OSC is a network protocol mainly used for real time processing of sound data. Having a background in computer science we were able to set up the OSC client on the python side quite fast but needed support for the PD side. The tutorials by von Coler [[?10]](#pd-examples) and Davison [[?11]](#pd-examples) helped out so that messages with the preprocessed data can be used inside our PD patch.  
 As a last step before hearing the final sonification we need a synthesizer. After starting with simple sine waves and pitches manipulated by the PM values, we realized that we need different approaches to communicate the meaning of the data to the listeners on the bike more intuitively.  
 // THAT IS WHY WE DECIDED FOR GEIGER/SAMPLES...  
-To manage this last step we experienced great help by *Kaffe Matthews*, *Hendrik von Coler* and a PD tutorial by Kreidler [[?12]](#pd-examples).
+To manage this last step we experienced great help by *Kaffe Matthews*, *Hendrik von Coler*, and a PD tutorial by Kreidler [[?12]](#pd-examples).
 
 
 ### 6.) Work results
@@ -130,6 +143,11 @@ Add more than one channel to make multiple notes at the same time possible 
 Maybe use a different synth
 
 
+Another interesting consideration for the future could be interactive sonification. Herman and Hunt [[??]](#reference-list) state that most sonification "fails to engage users in the same way as musical instruments" because they lack of physical interaction and naturalness. The usage of naturalness of sound of the real world already got our attention when thinking about an intuitive way of monitoring air pollution. But thinking of sonification with physical interaction possibilities would be a new level.
+For our sonification we map multiple dimensions of data to acoustic properties. Herman and Hunt recommend to include interactive controls and input devices to this mapping.
+For example the cyclist could choose the sound of most alarming data points to be a Geiger counter, smoke detector sound, or heavy breathing. Maybe the preferences even change when being in different locations of the city. We imagine that an interactive customization of the sonification would increase user satisfaction and usage and maybe consolidate personal associations with air pollution.
+
+
 ### 8.) Acknowledgements
 We would like to thank Kaffe Matthews and Henrik von Coler for their help and expertise they shared with us.  
 Kaffe Matthews inspired and leaded us to the sonic bike topic. She provided data and new ideas in several meetings.  
@@ -142,6 +160,7 @@ Thank you, Julia von Thienen for the inspiring lecture and the confidence that w
 
 
 #### Sonification  
+[[1????]](https://digitalcommons.unl.edu/cgi/viewcontent.cgi?article=1443&context=psychfacpub) Kramer, G., Walker, B. N., Bonebright, T., Cook, P., Flowers, J., Miner, N., et al. (1999).The Sonification Report: Status of the Field and Research Agenda. Report prepared for the National Science Foundation by members of the International Community for Auditory Display. Santa Fe, NM: International Community for Auditory Display (ICAD)  
 [[1]](
 https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.123.6715&rep=rep1&type=pdf
 ) Barrass, S., & Kramer, G. (1999). *Using sonification.* Multimedia systems, 7(1), 23-31.  
