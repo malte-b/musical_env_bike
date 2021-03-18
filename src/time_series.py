@@ -6,10 +6,15 @@ from helper.generate_velocity import generate_velocity
 from helper.generate_pitch import generate_pitch
 from helper.generate_chord import generate_chord
 from pythonosc.udp_client import SimpleUDPClient
+import os
+
+
+dirname = os.path.dirname(__file__)
+DATA_FILE = os.path.join(dirname, '../data/ride1.csv')
 
 client = SimpleUDPClient("127.0.0.1", 6666)
 
-DATA_FILE = '../data/ride1.csv'
+#DATA_FILE = '../data/ride1.csv'
 ride_df = pd.read_csv(DATA_FILE)
 sampling_rate = 10
 pm1 = 0
@@ -52,7 +57,7 @@ for index, row in ride_df.iterrows():
         for note_length in rhythm:
             for i,note in enumerate(chord):
                 client.send_message("/voice"+str(i), [note, generate_velocity(pm2_5), note_length])
-                #pause()
+                pause()
             time.sleep(note_length)
 
         # reset
