@@ -18,14 +18,14 @@ pm2_5 = 0
 pm10 = 0
 
 def pause():
-    time.sleep(randint(0,100) * .00035)
+    time.sleep(randint(0,100) * .00025)
 
 for index, row in ride_df.iterrows():
     pm1 += row['1.0']
     pm2_5 += row['2.5']
     pm10 += row['10.0']
     if index % sampling_rate == 0 and index>0: # subsample our data and take average of last 10 seconds as value
-        
+
         pm1 = (pm1/sampling_rate)
         pm2_5 = (pm2_5/sampling_rate)
         pm10 = (pm10/sampling_rate)
