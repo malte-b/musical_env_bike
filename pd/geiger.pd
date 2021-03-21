@@ -15,8 +15,8 @@
 #X obj 898 161 soundfiler;
 #X floatatom 898 199 10 0 0 0 - - -;
 #N canvas 0 50 450 250 (subpatch) 0;
-#X array geiger 721 float 2;
-#X coords 0 1 721 -1 200 140 1 0 0;
+#X array geiger 7198 float 2;
+#X coords 0 1 7198 -1 200 140 1 0 0;
 #X restore 897 249 graph;
 #X msg 898 123 read -resize \$1 geiger;
 #X obj 310 273 pack f f f;
@@ -29,9 +29,9 @@
 -1 -1 200 1;
 #X text 394 298 start \, end duration;
 #X text 566 198 length of geiger sound file: ca 0.033 sec;
-#X msg 570 225 0 \, 721 33;
 #X text 892 24 open geiger sound file;
-#X msg 939 69 ../samples/geiger;
+#X msg 570 225 0 \, 1585 33;
+#X msg 939 69 ../samples/geiger2.wav;
 #X connect 1 0 2 0;
 #X connect 2 0 0 0;
 #X connect 2 0 8 0;
@@ -49,5 +49,5 @@
 #X connect 19 0 20 0;
 #X connect 19 0 20 1;
 #X connect 21 0 19 1;
-#X connect 24 0 15 0;
+#X connect 25 0 15 0;
 #X connect 26 0 10 0;
