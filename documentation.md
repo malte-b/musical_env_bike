@@ -91,21 +91,24 @@ In the following sections we take a more detailled look into each step we take t
 <!-- 3) Methods used: Generally ☺. Please ensure the communication of a suitable portfolio of project aims. E.g., why is it necessary to mimick chords, why do you create a rhythm etc.? Simpler approaches might be more suited to help listeners understand levels of air pollution in diagnostically straightforward ways. Maybe you have artistic aims? That’s good, just explain them. -->
 
 #### Data Preparation
-//ÜBERALL WHY
+Air pollution is different in every location. This is why *Kaffe Matthews* and her team can not simply take the bikes from Lisboa to another city but have to adapt some thresholds to different levels to generate meaningful sonification in different areas.  
+Right know *Kaffe Matthews* is working in Berlin. She gathered PM data in seven rides she did in her neighborhood. The following figure shows raincloud violin plots with the distribution of the PM values for all seven rides.
 
-PM = “Particulate Matter“
-PM 2.5 = amount of µg/m³ of particles	smaller than 2.5 µm
+![PM Raincloud Plots](https://raw.githubusercontent.com/malte-b/musical_env_bike/readme_images/readme_images/pm_raincloud.png)
 
-Average Limits per Year:
+Looking at the plot we find that the distribution of PM2.5 and PM10 seem to be the same. This can be explained by the definition of PM ("Particulate Matter"). 
+PM1 describes the amount of µg/m³ of particles	smaller than 1 µm. PM2.5 includes the amount of µg/m³ of particles	smaller than 2.5 µm. And PM10 contains the amount of µg/m³ of particles	smaller than 10 µm. All particles that are smaller than 1 µm or 2.5 µm are smaller than 10 µm as well. Therefore the PM10 values equal the PM2.5 values most of the time.
+
+For sonification we want to use the PM data to manipulate different aspects of the auditory represantation. If PM2.5 and PM10 values behave the same most of the time the sound representation hardly becomes exiting and meaningful to the listener. This is why we decided to subtract the smaller PM values of the bigger ones for each data point. This way we generate something we call "disjoint PM". As expected, the following plot proves that the distribution of the PM values becomes more distinct for the "disjoint PM".
+
+![Disjoint PM Raincloud Plots](https://raw.githubusercontent.com/malte-b/musical_env_bike/readme_images/readme_images/disjoint_pm_raincloud.png)
+
+One thing we have to keep in mind, is that we have to use the original PM data when comparing to average limits per year. To ensure human health there are statutory thresholds by the EU and more strict recommendations by the WHO. Both presented in the following table (thresholds according to [[2]](#air-pollution)):
 
 |          | PM 1     | PM 2.5   | PM 10    |
 | -------- | -------- | -------- | -------- |
 | EU       | -        | 25 µg/m³ | 40 µg/m³ |
 | WHO      | -        | 10 µg/m³ | 20 µg/m³ |
-
-// erklären wie und warum man zu disjoint kommt
-
-![Disjoint PM Raincloud Plots](https://raw.githubusercontent.com/malte-b/musical_env_bike/readme_images/readme_images/disjoint_pm_raincloud.png)
 
 
 #### Generate Pitch
@@ -151,6 +154,7 @@ To manage this last step we experienced great help by *Kaffe Matthews*, *Hendrik
 #### Where to find the code and demo/prototypical application
 Code: https://github.com/malte-b/musical_env_bike  
 In-Class Demo: https://1drv.ms/b/s!AnD1AVr_uHBJkHPlirrGs40Kx7ko?e=8xV6Z3  
+Demo using chords for the first time:
 Final Demo:
 
 ### 7.) Conclusion, discussion, limitations and avenues for future work
@@ -169,8 +173,6 @@ For example the cyclist could choose the sound of most alarming data points to b
 We would like to thank Kaffe Matthews and Henrik von Coler for their help and expertise they shared with us.  
 Kaffe Matthews inspired and leaded us to the sonic bike topic. She provided data and new ideas in several meetings.  
 Henrik von Coler was our technical mentor and helped us in multiple meetings to set up the technical framework.
-
-Thank you, Julia von Thienen for the inspiring lecture and the confidence that we will find a working, exciting project when we ourselves had no ideas yet.
 
 ### Reference List
 #### Air Pollution
