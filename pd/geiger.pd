@@ -1,8 +1,8 @@
-#N canvas 765 248 1124 629 12;
+#N canvas 572 217 1124 629 12;
 #X obj 57 249 print;
 #X obj 311 114 udpreceive;
 #X obj 311 190 unpackOSC;
-#X obj 35 68 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+#X obj 35 68 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X msg 33 119 \; pd dsp \$1;
 #X text 28 23 turn audio on and off;
@@ -26,7 +26,7 @@
 #X obj 310 403 *~;
 #X obj 310 446 dac~;
 #X obj 364 405 hsl 128 15 0 127 0 0 empty empty Volume -2 -8 0 10 -262144
--1 -1 200 1;
+-1 -1 0 1;
 #X text 394 298 start \, end duration;
 #X text 566 198 length of geiger sound file: ca 0.033 sec;
 #X text 892 24 open geiger sound file;
