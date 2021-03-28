@@ -49,6 +49,7 @@ for index, row in ride_df.iterrows():
 
                 # geiger3.wav
                 # client.send_message("/geiger", [0, 7198, 150])
+                
                 time.sleep(sampling_time/pm10)
 
         # reset
