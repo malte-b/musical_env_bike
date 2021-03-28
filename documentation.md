@@ -96,8 +96,8 @@ Right know *Kaffe Matthews* is working in Berlin. She gathered PM data in seven 
 
 ![PM Raincloud Plots](https://raw.githubusercontent.com/malte-b/musical_env_bike/readme_images/readme_images/pm_raincloud.png)
 
-Looking at the plot we find that the distribution of PM2.5 and PM10 seem to be the same. This can be explained by the definition of PM ("Particulate Matter").
-PM1 describes the amount of µg/m³ of particles	smaller than 1 µm. PM2.5 includes the amount of µg/m³ of particles	smaller than 2.5 µm. And PM10 contains the amount of µg/m³ of particles	smaller than 10 µm. All particles that are smaller than 1 µm or 2.5 µm are smaller than 10 µm as well. Therefore the PM10 values equal the PM2.5 values most of the time.
+Looking at the plot we find that the distribution of PM2.5 and PM10 nearly seem to be the same. This can be explained by the definition of PM ("Particulate Matter").
+PM1 describes the amount of µg/m³ of particles	smaller than 1 µm. PM2.5 includes the amount of µg/m³ of particles	smaller than 2.5 µm. And PM10 contains the amount of µg/m³ of particles	smaller than 10 µm. All particles that are smaller than 1 µm or 2.5 µm are smaller than 10 µm as well. If there are only a few particles with a size between 2.5 and 10 µm, the PM10 values equal the PM2.5 values most of the time.
 
 For sonification we want to use the PM data to manipulate different aspects of the auditory represantation. If PM2.5 and PM10 values behave the same most of the time the sound representation hardly becomes exiting and meaningful to the listener. This is why we decided to subtract the smaller PM values of the bigger ones for each data point. This way we generate something we call "disjoint PM". As expected, the following plot proves that the distribution of the PM values becomes more distinct for the "disjoint PM".
 
@@ -130,11 +130,11 @@ If pollution is high it gets louder
 // ADD DESCRIPTION
 
 #### Generate Rhythm
-//ÜBERALL WHY
+For higher air pollution, we want the sonification to be more alarming and with a faster rhythm. To not monotonicly use the same rhythm all the time after passing a threshold, we decided to implement a partly probability-based rhythm.
 
 The rhythm can consist of eighth notes (E), quarter notes (Q) and half notes (H). If the PM values are high we want the music to be faster.  
-Imagine we have 120 bpm. That is 2 beats per second. Since our sequencer steps 1 time every second we have for every data point 2 beats (= one half note) to compose.  
-For each data point we generate two thresholds determining the probabilities for a slow, medium or fast rhythm. In the picture below these thresholds are 0.2, and 0.7. This means a 20% probability for a half note, 50% probability for a medium fast rhythm with quater notes and 30% probability for a fast rhythm with eighth notes.  
+Imagine we have 120 bpm. That is 2 beats per second. Our sequencer steps 1 time every second, so we have for every data point 2 beats (= one half note) to compose.  
+For each data point we generate two thresholds determining the probabilities for a slow, medium or fast rhythm. In the figure below these thresholds are 0.2, and 0.7. This means a 20% probability for a half note, 50% probability for a medium fast rhythm with mostly quater notes and 30% probability for a fast rhythm with eighth notes.  
 As shown in the figure below we generate a random number for each data point. By comparing that to the data-based thresholds we get the rhythm.
 
 ![Probability Based Rhythm Generation](https://raw.githubusercontent.com/malte-b/musical_env_bike/readme_images/readme_images/generate_rhythm.png)
@@ -142,10 +142,10 @@ As shown in the figure below we generate a random number for each data point. By
 #### PD Patch
 //ÜBERALL WHY
 
-To send the preprocessed information to PD (*Pure Data*), we use OSC (*Open Sound Control*). OSC is a network protocol mainly used for real time processing of sound data. Having a background in computer science we were able to set up the OSC client on the python side quite fast but needed support for the PD side. The tutorials by von Coler [[22]](#pd-examples) and Davison [[23]](#pd-examples) helped out so that messages with the preprocessed data can be used inside our PD patch.  
+To send the preprocessed information to PD (*Pure Data*), we use OSC (*Open Sound Control*). OSC is a network protocol mainly used for real time processing of sound data. Having a background in computer science we were able to set up the OSC client on the python side quite fast but needed support for the PD side. The tutorials by von Coler [[23]](#pd-examples) and Davison [[24]](#pd-examples) helped out so that messages with the preprocessed data can be used inside our PD patch.  
 As a last step before hearing the final sonification we need a synthesizer. After starting with simple sine waves and pitches manipulated by the PM values, we realized that we need different approaches to communicate the meaning of the data to the listeners on the bike more intuitively.  
 // THAT IS WHY WE DECIDED FOR GEIGER/SAMPLES...  
-To manage this last step we experienced great help by *Kaffe Matthews*, *Hendrik von Coler*, and a PD tutorial by Kreidler [[24]](#pd-examples).
+To manage this last step we experienced great help by *Kaffe Matthews*, *Hendrik von Coler*, and PD tutorials by Kreidler [[25]](#pd-examples) and Brown [[22]](#pd-examples).
 
 
 ### 6.) Work results
@@ -210,6 +210,7 @@ https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.123.6715&rep=rep1&type
 
 
 #### PD examples  
-[[22]](https://hvc.berlin/puredata/) Henrik von Coler (2020). *Puredata.* Retrieved from https://hvc.berlin/puredata/ on 2021-03-16   
-[[23]](https://archive.flossmanuals.net/pure-data/network-data/osc.html) Patrick Davison (2009). *Open Sound Control (OSC).* Retrieved from https://archive.flossmanuals.net/pure-data/network-data/osc.html on 2021-03-16   
-[[24]](http://www.pd-tutorial.com/german/ch03.html) Johannes Kreidler (2009). *Programmierung Elektronischer Musik in Pd.* Kapitel 3. Audio. Retrieved from http://www.pd-tutorial.com/german/ch03.html on 2021-03-16   
+[[22]](https://www.youtube.com/watch?v=br7Hcx_FLoc) QCGInteractiveMusic/Andrew R. Brown (2020). *39. Modifying Audio File Playback with Pure Data.* Real-time Music and Sound with Pure Data vanilla. Retrieved from https://www.youtube.com/watch?v=br7Hcx_FLoc on 2021-03-28
+[[23]](https://hvc.berlin/puredata/) Henrik von Coler (2020). *Puredata.* Retrieved from https://hvc.berlin/puredata/ on 2021-03-16   
+[[24]](https://archive.flossmanuals.net/pure-data/network-data/osc.html) Patrick Davison (2009). *Open Sound Control (OSC).* Retrieved from https://archive.flossmanuals.net/pure-data/network-data/osc.html on 2021-03-16   
+[[25]](http://www.pd-tutorial.com/german/ch03.html) Johannes Kreidler (2009). *Programmierung Elektronischer Musik in Pd.* Kapitel 3. Audio. Retrieved from http://www.pd-tutorial.com/german/ch03.html on 2021-03-16   
