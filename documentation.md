@@ -96,14 +96,14 @@ Right know *Kaffe Matthews* is working in Berlin. She gathered PM data in seven 
 
 ![PM Raincloud Plots](https://raw.githubusercontent.com/malte-b/musical_env_bike/readme_images/readme_images/pm_raincloud.png)
 
-Looking at the plot we find that the distribution of PM2.5 and PM10 seem to be the same. This can be explained by the definition of PM ("Particulate Matter"). 
+Looking at the plot we find that the distribution of PM2.5 and PM10 seem to be the same. This can be explained by the definition of PM ("Particulate Matter").
 PM1 describes the amount of µg/m³ of particles	smaller than 1 µm. PM2.5 includes the amount of µg/m³ of particles	smaller than 2.5 µm. And PM10 contains the amount of µg/m³ of particles	smaller than 10 µm. All particles that are smaller than 1 µm or 2.5 µm are smaller than 10 µm as well. Therefore the PM10 values equal the PM2.5 values most of the time.
 
 For sonification we want to use the PM data to manipulate different aspects of the auditory represantation. If PM2.5 and PM10 values behave the same most of the time the sound representation hardly becomes exiting and meaningful to the listener. This is why we decided to subtract the smaller PM values of the bigger ones for each data point. This way we generate something we call "disjoint PM". As expected, the following plot proves that the distribution of the PM values becomes more distinct for the "disjoint PM".
 
 ![Disjoint PM Raincloud Plots](https://raw.githubusercontent.com/malte-b/musical_env_bike/readme_images/readme_images/disjoint_pm_raincloud.png)
 
-One thing we have to keep in mind, is that we have to use the original PM data when comparing to average limits per year. To ensure human health there are statutory thresholds by the EU and more strict recommendations by the WHO. Both presented in the following table (thresholds according to [[2]](#air-pollution)):
+One thing we have to keep in mind, is that we have to use the original PM data when comparing to legal thresholds. To ensure human health there are statutory thresholds by the EU and more strict recommendations by the WHO. All average limits per year are presented in the following table (thresholds according to [[2]](#air-pollution)):
 
 |          | PM 1     | PM 2.5   | PM 10    |
 | -------- | -------- | -------- | -------- |
@@ -135,7 +135,7 @@ If pollution is high it gets louder
 The rhythm can consist of eighth notes (E), quarter notes (Q) and half notes (H). If the PM values are high we want the music to be faster.  
 Imagine we have 120 bpm. That is 2 beats per second. Since our sequencer steps 1 time every second we have for every data point 2 beats (= one half note) to compose.  
 For each data point we generate two thresholds determining the probabilities for a slow, medium or fast rhythm. In the picture below these thresholds are 0.2, and 0.7. This means a 20% probability for a half note, 50% probability for a medium fast rhythm with quater notes and 30% probability for a fast rhythm with eighth notes.  
-As shown in the picture below we generate a random number for each data point. By comparing that to the data-based thresholds we get the rhythm.
+As shown in the figure below we generate a random number for each data point. By comparing that to the data-based thresholds we get the rhythm.
 
 ![Probability Based Rhythm Generation](https://raw.githubusercontent.com/malte-b/musical_env_bike/readme_images/readme_images/generate_rhythm.png)
 
@@ -154,7 +154,7 @@ To manage this last step we experienced great help by *Kaffe Matthews*, *Hendrik
 #### Where to find the code and demo/prototypical application
 Code: https://github.com/malte-b/musical_env_bike  
 In-Class Demo: https://1drv.ms/b/s!AnD1AVr_uHBJkHPlirrGs40Kx7ko?e=8xV6Z3  
-Demo using chords for the first time:
+Demo using chords for the first time:  
 Final Demo:
 
 ### 7.) Conclusion, discussion, limitations and avenues for future work
