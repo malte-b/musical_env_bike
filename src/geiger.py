@@ -42,13 +42,13 @@ for index, row in ride_df.iterrows():
         else:
             for click in range(0, pm10):
                 # geiger.wav
-                # client.send_message("/geiger", [0, 721, 33])
+                client.send_message("/geiger", [0, 721, 33])
 
                 # geiger2.wav
-                client.send_message("/geiger", [0, 1585, 33])
+                #client.send_message("/geiger", [0, 1585, 33])
 
                 # geiger3.wav
-                # client.send_message("/geiger", [0, 7198, 150])
+                #client.send_message("/geiger", [0, 7198, 150])
                 
                 time.sleep(sampling_time/pm10)
 
