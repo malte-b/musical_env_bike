@@ -140,12 +140,12 @@ As shown in the figure below we generate a random number for each data point. By
 ![Probability Based Rhythm Generation](https://raw.githubusercontent.com/malte-b/musical_env_bike/readme_images/readme_images/generate_rhythm.png)
 
 #### PD Patch
-//ÜBERALL WHY
-
-To send the preprocessed information to PD (*Pure Data*), we use OSC (*Open Sound Control*). OSC is a network protocol mainly used for real time processing of sound data. Having a background in computer science we were able to set up the OSC client on the python side quite fast but needed support for the PD side. The tutorials by von Coler [[23]](#pd-examples) and Davison [[24]](#pd-examples) helped out so that messages with the preprocessed data can be used inside our PD patch.  
+To finally hear the sonified data we use PD (*Pure Data*). We send the preprocessed information to PD via OSC (*Open Sound Control*). OSC is a network protocol mainly used for real time processing of sound data. Having a background in computer science we were able to set up the OSC client on the python side quite fast but needed support for the PD side. The tutorials by von Coler [[23]](#pd-examples) and Davison [[24]](#pd-examples) helped out so that messages with the preprocessed data can be used inside our PD patch.  
 As a last step before hearing the final sonification we need a synthesizer. After starting with simple sine waves and pitches manipulated by the PM values, we realized that we need different approaches to communicate the meaning of the data to the listeners on the bike more intuitively.  
-// THAT IS WHY WE DECIDED FOR GEIGER/SAMPLES...  
-To manage this last step we experienced great help by *Kaffe Matthews*, *Hendrik von Coler*, and PD tutorials by Kreidler [[25]](#pd-examples) and Brown [[22]](#pd-examples).
+
+We want to create this intuitive understanding with samples that sound like air pollution. Air pollution has no natural sound but we instantly had some associations like traffic or engine exhaust, breathing, coughing, wind, bubble balks, doctor's stethoscope and brass instruments. When thinking of sounds of measuring devices that measure hazardous substances in the air we thought about Geiger counters and smoke detectors.  
+
+In our final demo for this semester we decided to combine the rich sound of self recoded saxophone samples and a Geiger counter. Via OSC we trigger PD to play the samples in a certain speed. This speed is based on the calculated pitch. To manage this last step we experienced great help by *Kaffe Matthews*, *Hendrik von Coler*, and PD tutorials by Kreidler [[25]](#pd-examples) and Brown [[22]](#pd-examples).
 
 
 ### 6.) Work results
@@ -210,7 +210,7 @@ https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.123.6715&rep=rep1&type
 
 
 #### PD examples  
-[[22]](https://www.youtube.com/watch?v=br7Hcx_FLoc) QCGInteractiveMusic/Andrew R. Brown (2020). *39. Modifying Audio File Playback with Pure Data.* Real-time Music and Sound with Pure Data vanilla. Retrieved from https://www.youtube.com/watch?v=br7Hcx_FLoc on 2021-03-28
+[[22]](https://www.youtube.com/watch?v=br7Hcx_FLoc) QCGInteractiveMusic/Andrew R. Brown (2020). *39. Modifying Audio File Playback with Pure Data.* Real-time Music and Sound with Pure Data vanilla. Retrieved from https://www.youtube.com/watch?v=br7Hcx_FLoc on 2021-03-28  
 [[23]](https://hvc.berlin/puredata/) Henrik von Coler (2020). *Puredata.* Retrieved from https://hvc.berlin/puredata/ on 2021-03-16   
 [[24]](https://archive.flossmanuals.net/pure-data/network-data/osc.html) Patrick Davison (2009). *Open Sound Control (OSC).* Retrieved from https://archive.flossmanuals.net/pure-data/network-data/osc.html on 2021-03-16   
 [[25]](http://www.pd-tutorial.com/german/ch03.html) Johannes Kreidler (2009). *Programmierung Elektronischer Musik in Pd.* Kapitel 3. Audio. Retrieved from http://www.pd-tutorial.com/german/ch03.html on 2021-03-16   
