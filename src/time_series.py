@@ -18,7 +18,7 @@ pm2_5 = 0
 pm10 = 0
 
 def pause():
-    time.sleep(randint(0,100) * .00025)
+    time.sleep(randint(0,100) * .0002)
 
 for index, row in ride_df.iterrows():
     pm1 += row['1.0']
