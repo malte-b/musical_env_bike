@@ -32,12 +32,12 @@ When we breathe in polluted air, particles can get into our lungs and blood, lea
 Particularly dangerous are the smallest particles in the air. They are grouped with the term *particulate matter (PM)* (german: "Feinstaub"). PM is a mixture of solid and liquid particles. Distinctions are made in the size of the particles, no matter what chemical elements are involved. More detailed information on PM is given in the [data preparation](#data-preparation) section.
 
 Because it leads to health and climate problems, PM also gets more and more attention from artists. *Anirudh Sharma* motivates people all around the world to think differently about air pollution. He produces *Air Ink* out of PM2.5 particles [[1]](#air-pollution). Artists can use this rich, dark black ink for paintings or textile printing. With *Air Ink* air pollution is turned into something useful. Most artists use *Air Ink* to communicate health and climate problems caused by air pollution in their paintings. We believe that more and more people are aware of these problems. But when we asked ourselves how much particulate matter we breathe in when we go outside in our own neighborhood, we did not have a clue.  
-Even though many city councils monitor air quality, the measuring stations are installed in one fixed position [[3]](#air-pollution). But how is the air pollution, right here and right now, in our neighborhood? How can we raise attention to our individual interaction with air and air pollution?  
+Even though many city councils monitor air quality, the measuring stations are installed in fixed positions [[3]](#air-pollution). But how is the air pollution, right here and right now, in our neighborhood? How can we raise attention to our individual interaction with air and air pollution?  
 
 The 'Sonic Bike Project' is concerned about precisely this topic. The goal is to hear and understand sonified air pollution data while riding a bike. The black bikes look pretty natural but have an air pollution sensor as well as hardware and speakers attached to the bike so that the cyclist can independently ride around. While riding, the sensor measures the particulate matter, and this live data is directly sonified and presented to the cyclists via the speakers.
 
 We joined the project after meeting *Kaffe Matthews*. Together with two colleagues, she introduced the *Sonic Bikes* to the public in Lisboa and plans the next *Sonic Bike* event in Great Britain in summer 2021. The *Sonic Bike Project* is concerned about raising awareness of air pollution, gathering environmental data, and attracting other pedestrians' attention. They aim to communicate the collected data in an engaging, artistic way. But at the same time, the cyclist should intuitively understand the data so that the sound should be meaningful and informative as well.  
-As Computer Scientists, we are quite new to the artistic, musical approach the *Sonic Bike Project* is taking right now. On the other hand, we believe that our background can add interesting insights to the project in the way we can process and work with large amounts of data.  
+As computer scientists, we are quite new to the artistic, musical approach the *Sonic Bike Project* is taking right now. On the other hand, we believe that our background can add interesting insights to the project in the way we can process and work with large amounts of data.  
 Regarding the project outcome of our seminar project, we are interested in translating data to sound that the cyclist can intuitively understand. We aim to raise awareness of air pollution but have a sound that is interesting enough to ride the bike for an extended time period. Towards the end of the semester, we asked ourselves what air pollution could sound like and still discover this question with different samples we record ourselves.
 
 <!-- 2) Introduction to the topic: basically ☺, please ensure a good consistency between your communicated project aims and the chosen sound design / sonification approach
@@ -91,7 +91,7 @@ In the following sections we take a more detailled look into each step we take t
 <!-- 3) Methods used: Generally ☺. Please ensure the communication of a suitable portfolio of project aims. E.g., why is it necessary to mimick chords, why do you create a rhythm etc.? Simpler approaches might be more suited to help listeners understand levels of air pollution in diagnostically straightforward ways. Maybe you have artistic aims? That’s good, just explain them. -->
 
 #### Data Preparation
-Air pollution is different in every location. This is why *Kaffe Matthews* and her team can not simply take the bikes from Lisboa to another city but have to adapt some thresholds to different levels to generate meaningful sonification in different areas.  
+Air pollution is different in every location. This is why *Kaffe Matthews* and her team cannot simply take the bikes from Lisboa to another city but have to adapt some thresholds to different levels to generate meaningful sonification in different areas.  
 Right know *Kaffe Matthews* is working in Berlin. She gathered PM data in seven rides she did in her neighborhood. The following figure shows raincloud violin plots with the distribution of the PM values for all seven rides.
 
 ![PM Raincloud Plots](https://raw.githubusercontent.com/malte-b/musical_env_bike/readme_images/readme_images/pm_raincloud.png)
@@ -103,7 +103,7 @@ For sonification we want to use the PM data to manipulate different aspects of t
 
 ![Disjoint PM Raincloud Plots](https://raw.githubusercontent.com/malte-b/musical_env_bike/readme_images/readme_images/disjoint_pm_raincloud.png)
 
-One thing we have to keep in mind, is that we have to use the original PM data when comparing to legal thresholds. To ensure human health there are statutory thresholds by the EU and more strict recommendations by the WHO. All average limits per year are presented in the following table (thresholds according to [[2]](#air-pollution)):
+One thing we have to keep in mind is that we have to use the original PM data when comparing to legal thresholds. To ensure human health there are statutory thresholds by the EU and more strict recommendations by the WHO. All average limits per year are presented in the following table (thresholds according to [[2]](#air-pollution)):
 
 |          | PM 1     | PM 2.5   | PM 10    |
 | -------- | -------- | -------- | -------- |
@@ -111,25 +111,18 @@ One thing we have to keep in mind, is that we have to use the original PM data w
 | WHO      | -        | 10 µg/m³ | 20 µg/m³ |
 
 
-#### Generate Pitch
-//ÜBERALL WHY
+#### Generating Pitch
+As the pitch is the property of music with a high variance generally, we chose the PM 1 values, which have the biggest spread of values out of the three, to determine the pitch of our generated sounds.
+We thought about PM1 helping to understand the other two air pollution values because PM1 itself does not have well defined limits. To achieve this we do not just play random notes according to these values but instead create chords out of them where the current PM1 value corresponds to the root note of the chord. Then we decided based on thresholds on the PM2.5 and PM10 values at the same time, in which mode the chords should be. We used a major chord for low AP levels as they are most common in pop music and sound generally more happy, at least in our western culture [[22]](#methods). Our hypothesis is that the listener can link those positive chords to low pollution.
 
-Based on disjoint PM1 values
+If there is modest pollution, we play minor or minor 7th chords. They are mostly regarded as sad [[22]](#methods) which we thought was fitting because while not dramatically higher, these values should make the rider listen twice and notice the change in tone.
 
-If pollution is high the pitch gets higher
+Lastly for the highes AP levels we wanted to grab the listeners attention while still using solid musical foundations. That is why we went for polychords which are multiple chords stacked on top of each other and played simultaneously. In our case we chose a minor chord stacked on top of a major chord with both having the same root note. The sound of polychords is very dissonant compared to the two modes above which should be apparent also for the untrained ear, suggesting that something is not right. It also makes the listening experience less pleasant for the rider which could lead to them avoiding high pollution areas in the future.
 
-// ADD DESCRIPTION
+#### Generating Volume
+To sonify PM2.5 levels we chose a rather simple linear mapping of them to the volume of the produced sounds. Rather than giving each different value a different volume we opted to go with an approach were small value changes result in the same volume. Our musical inspiration here were the dynamic levels that range from pp (*pianissimo*) for very quiet to ff (*fortissimo*) for very loud. This was also useful in denoising in the data for the listener. At the same time it is very straightforward to understand as higher volumes lead to more attention and seem more dangerous.
 
-#### Generate Volume
-//ÜBERALL WHY
-
-Based on disjoint PM2.5 values
-
-If pollution is high it gets louder
-
-// ADD DESCRIPTION
-
-#### Generate Rhythm
+#### Generating Rhythm
 For higher air pollution, we want the sonification to be more alarming and with a faster rhythm. To not monotonicly use the same rhythm all the time after passing a threshold, we decided to implement a partly probability-based rhythm.
 
 The rhythm can consist of eighth notes (E), quarter notes (Q) and half notes (H). If the PM values are high we want the music to be faster.  
@@ -140,12 +133,12 @@ As shown in the figure below we generate a random number for each data point. By
 ![Probability Based Rhythm Generation](https://raw.githubusercontent.com/malte-b/musical_env_bike/readme_images/readme_images/generate_rhythm.png)
 
 #### PD Patch
-To finally hear the sonified data we use PD (*Pure Data*). We send the preprocessed information to PD via OSC (*Open Sound Control*). OSC is a network protocol mainly used for real time processing of sound data. Having a background in computer science we were able to set up the OSC client on the python side quite fast but needed support for the PD side. The tutorials by von Coler [[23]](#pd-examples) and Davison [[24]](#pd-examples) helped out so that messages with the preprocessed data can be used inside our PD patch.  
+To finally hear the sonified data we use PD (*Pure Data*). We send the preprocessed information to PD via OSC (*Open Sound Control*). OSC is a network protocol mainly used for real time processing of sound data. Having a background in computer science we were able to set up the OSC client on the python side quite fast but needed support for the PD side. The tutorials by von Coler [[24]](#pd-examples) and Davison [[25]](#pd-examples) helped out so that messages with the preprocessed data can be used inside our PD patch.  
 As a last step before hearing the final sonification we need a synthesizer. After starting with simple sine waves and pitches manipulated by the PM values, we realized that we need different approaches to communicate the meaning of the data to the listeners on the bike more intuitively.  
 
 We want to create this intuitive understanding with samples that sound like air pollution. Air pollution has no natural sound but we instantly had some associations like traffic or engine exhaust, breathing, coughing, wind, bubble balks, doctor's stethoscope and brass instruments. When thinking of sounds of measuring devices that measure hazardous substances in the air we thought about Geiger counters and smoke detectors.  
 
-In our final demo for this semester we decided to combine the rich sound of self recoded saxophone samples and a Geiger counter. Via OSC we trigger PD to play the samples in a certain speed. This speed is based on the calculated pitch. To manage this last step we experienced great help by *Kaffe Matthews*, *Hendrik von Coler*, and PD tutorials by Kreidler [[25]](#pd-examples) and Brown [[22]](#pd-examples).
+In our final demo for this semester we decided to combine the rich sound of self recoded saxophone samples and a Geiger counter. Via OSC we trigger PD to play the samples in a certain speed. This speed is based on the calculated pitch. To manage this last step we experienced great help by *Kaffe Matthews*, *Hendrik von Coler*, and PD tutorials by Kreidler [[26]](#pd-examples) and Brown [[23]](#pd-examples).
 
 
 ### 6.) Work results
@@ -154,15 +147,22 @@ In our final demo for this semester we decided to combine the rich sound of self
 #### Where to find the code and demo/prototypical application
 Code: https://github.com/malte-b/musical_env_bike  
 In-Class Demo: https://1drv.ms/b/s!AnD1AVr_uHBJkHPlirrGs40Kx7ko?e=8xV6Z3  
-Demo using chords for the first time:  
-Final Demo:
+Demo using chords for the first time: https://github.com/malte-b/musical_env_bike/blob/main/demos/demo_synth.wav
+Final Demo: 
 
 ### 7.) Conclusion, discussion, limitations and avenues for future work
 <!-- 5) Conclusion and discussion, including limitations of your work and potential avenues for future work: Please work this out in detail. There should be a headline “conclusions” re-stating your overarching aims/vision and reviewing how far you have come with this; there should be a headline “limitations” followed by a couple of bullet points with the limitations you currently acknowledge, suggesting next likely steps to follow. Compare your slide 11 to slide 4. Your next step is to use more than one channel. Why? Which of your three goals on slide 11 is not fully met as of yet? Why would creating more channels be a helpful means to better achieving this particular goal? -->
-Next steps:
-Add more than one channel to make multiple notes at the same time possible 
-Maybe use a different synth
+### Conclusion
+Our goal of this project was to make people more aware of the air pollution in their daily life by sonifying real-time air pollution data on a bike. Simultaneously we used musical foundations for generating sounds to make differences of polution more noticable for a layman by sounding less and less pleasant the higher the pollution gets.
+We think that we have come quite far with our work considering we did not re-use any existing code of the *Sonic Bike* project but instead wrote all the logic behind our sound generation from scratch in Python and also wrote the necessary PD patches to get the sounds we envisioned without any prior experience with it. 
 
+Sadly, courtesy of the ongoing pandemic and lockdown measures, we were unable to make our solution work on an actual sonic bike with real-time data but had to rely on recorded rides instead. This functionality would be the first step in making our vision of cyclists hearing the air pollution around them a reality and the user feedback that would surely arise from those rides would certainly help us to make the experience even better.
+
+### Limitations
+
+Right now the chords do not take into account which notes were played before them. Adding a memory of what was played before might help our sounds to become even more musical and help smoothen out transitions. This can be done using machine learning techniques for example.
+
+Furthermore in one time interval there is only the same chord played repeatedly. This can be changed by either play ing less notes as it may become annoying over time or by playing a melody over a static chord. Also there is always the same meter being 4/4 which could be changed and therefore given a different experience.
 
 Another interesting consideration for the future could be interactive sonification. Herman and Hunt [[5]](#sonification-1) state that most sonification "fails to engage users in the same way as musical instruments" because they lack of physical interaction and naturalness. The usage of naturalness of sound of the real world already got our attention when thinking about an intuitive way of monitoring air pollution. But thinking of sonification with physical interaction possibilities would be a new level.
 For our sonification we map multiple dimensions of data to acoustic properties. Herman and Hunt recommend to include interactive controls and input devices to this mapping.
@@ -171,7 +171,7 @@ For example the cyclist could choose the sound of most alarming data points to b
 
 ### 8.) Acknowledgements
 We would like to thank Kaffe Matthews and Henrik von Coler for their help and expertise they shared with us.  
-Kaffe Matthews inspired and leaded us to the sonic bike topic. She provided data and new ideas in several meetings.  
+Kaffe Matthews inspired and lead us to the sonic bike topic. She provided data and new ideas in several meetings.  
 Henrik von Coler was our technical mentor and helped us in multiple meetings to set up the technical framework.
 
 ### Reference List
@@ -208,9 +208,11 @@ https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.123.6715&rep=rep1&type
 [[20]](https://www.kaffematthews.net/project/environmental-bike-2020) Kaffe Matthews (2020). *Environmental Bike (2020).* Retrieved from https://www.kaffematthews.net/project/environmental-bike-2020 on 2021-03-16  
 [[21]](https://www.kaffematthews.net/category/Lisbon/) Kaffe Matthews (2020). *Sukandar connects the air pollution sensor / Environmental Bike gets real.* Retrieved from https://www.kaffematthews.net/category/Lisbon/ on 2021-03-16  
 
+#### Methods
+[[22]](https://journals.sagepub.com/doi/full/10.1177/1029864914542842) Parncutt, Richard. "The emotional connotations of major versus minor tonality: One or more origins?." Musicae Scientiae 18.3 (2014): 324-353.
 
 #### PD examples  
-[[22]](https://www.youtube.com/watch?v=br7Hcx_FLoc) QCGInteractiveMusic/Andrew R. Brown (2020). *39. Modifying Audio File Playback with Pure Data.* Real-time Music and Sound with Pure Data vanilla. Retrieved from https://www.youtube.com/watch?v=br7Hcx_FLoc on 2021-03-28  
-[[23]](https://hvc.berlin/puredata/) Henrik von Coler (2020). *Puredata.* Retrieved from https://hvc.berlin/puredata/ on 2021-03-16   
-[[24]](https://archive.flossmanuals.net/pure-data/network-data/osc.html) Patrick Davison (2009). *Open Sound Control (OSC).* Retrieved from https://archive.flossmanuals.net/pure-data/network-data/osc.html on 2021-03-16   
-[[25]](http://www.pd-tutorial.com/german/ch03.html) Johannes Kreidler (2009). *Programmierung Elektronischer Musik in Pd.* Kapitel 3. Audio. Retrieved from http://www.pd-tutorial.com/german/ch03.html on 2021-03-16   
+[[23]](https://www.youtube.com/watch?v=br7Hcx_FLoc) QCGInteractiveMusic/Andrew R. Brown (2020). *39. Modifying Audio File Playback with Pure Data.* Real-time Music and Sound with Pure Data vanilla. Retrieved from https://www.youtube.com/watch?v=br7Hcx_FLoc on 2021-03-28  
+[[24]](https://hvc.berlin/puredata/) Henrik von Coler (2020). *Puredata.* Retrieved from https://hvc.berlin/puredata/ on 2021-03-16   
+[[25]](https://archive.flossmanuals.net/pure-data/network-data/osc.html) Patrick Davison (2009). *Open Sound Control (OSC).* Retrieved from https://archive.flossmanuals.net/pure-data/network-data/osc.html on 2021-03-16   
+[[26]](http://www.pd-tutorial.com/german/ch03.html) Johannes Kreidler (2009). *Programmierung Elektronischer Musik in Pd.* Kapitel 3. Audio. Retrieved from http://www.pd-tutorial.com/german/ch03.html on 2021-03-16   
