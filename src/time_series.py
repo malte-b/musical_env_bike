@@ -46,7 +46,6 @@ def chord(ride_df, sampling_rate):
                 for i,note in enumerate(chord):
                     client.send_message("/voice"+str(i), [note, generate_velocity(pm2_5), note_length - 0.01])
                 time.sleep(note_length - 0.001)
-                #time.sleep(0.018)
 
             # reset
             pm1 = 0
@@ -86,15 +85,7 @@ def geiger(ride_df, sampling_rate):
                     time.sleep(sampling_time)
                 else:
                     for click in range(0, num_clicks):
-                        # use this for geiger.wav
-                        # client.send_message("/geiger", [0, 721, 33])
-
-                        # use this for geiger2.wav
                         client.send_message("/geiger", [0, 1585, 33])
-
-                        # use this for geiger3.wav
-                        #client.send_message("/geiger", [0, 7198, 150])
-
                         time.sleep(sampling_time/num_clicks)
 
             # reset
